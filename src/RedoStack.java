@@ -1,14 +1,14 @@
 // This class holds necessary information based on the type of redo needed, used for performing redos
 
 public class RedoStack {
-    private Node n;
+    private final Node n;
 
-    private String s;
-    private char type;
+    private final String s;
+    private final char type;
 
-    private int length;
-    private int height;
-    private int start;
+    private final int length;
+    private final int height;
+    private final int start;
 
     // Constructor used for regular char redos
     RedoStack(char type, String s, Node n, int h, int start) {
@@ -17,6 +17,8 @@ public class RedoStack {
         this.n = n;
         this.start = start;
         height = h;
+
+        this.length = 0;
     }
 
     // Constructor used for backspace redos
@@ -26,6 +28,8 @@ public class RedoStack {
         this.n = n;
         this.start = start;
         height = h;
+
+        this.s = "";
     }
 
     // Constructor used for enter redos and deleted line nodes
@@ -34,6 +38,9 @@ public class RedoStack {
         this.s = s;
         this.n = n;
         height = h;
+
+        this.length = 0;
+        this.start = 0;
     }
 
     public Node get_Node() {
