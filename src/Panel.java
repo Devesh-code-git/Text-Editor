@@ -36,10 +36,10 @@ public class Panel extends JPanel implements KeyListener, MouseListener, MouseMo
     private FileIO file = new FileIO(); // Object to handle all of the File I/O for the editor
     private Input input = new Input(); // Object to handle all keyboard input and Gapbuffer / Lines managment
 
-    private Color BACKGROUND = new Color(10, 10, 10);
-    private Color TEXT = new Color(245, 245, 245);
-    private Color CURSOR = new Color(120, 200, 255);
-    private Color SELECTION = new Color(20, 20, 20);
+    private Color BACKGROUND = new Color(23, 17, 13);
+    private Color TEXT       = new Color(236, 224, 202);
+    private Color CURSOR     = new Color(225, 190, 110);
+    private Color SELECTION  = new Color(50, 38, 29);
     
     public Panel() {
         this.setBackground(BACKGROUND);
@@ -140,7 +140,7 @@ public class Panel extends JPanel implements KeyListener, MouseListener, MouseMo
             }
 
             int topY = charHeight + OFFSET_Y + (i - Y_start) * (charHeight + 7);
-            g2D.drawString(sb.toString(), OFFSET_X, topY);
+            Parser.parse(sb.toString(), topY, g2D, fm);
             sb.setLength(0);
         }
 
@@ -148,15 +148,15 @@ public class Panel extends JPanel implements KeyListener, MouseListener, MouseMo
         int cursor_Height = input.getHeight();
 
         if (New) {
-            g2D.setColor(new Color(20, 40, 85));
+            g2D.setColor(new Color(70, 58, 49));
             g2D.fillRect(width - 310, (height - (charHeight * 2) + 1), (new_width * 2), 40);
         } 
         else if (Open) {
-            g2D.setColor(new Color(20, 40, 85));
+            g2D.setColor(new Color(70, 58, 49));
             g2D.fillRect(width - 210, (height - (charHeight * 2) + 1), (open_width * 2) - 10, 40);
         } 
         else if (Save) {
-            g2D.setColor(new Color(20, 40, 85));
+            g2D.setColor(new Color(70, 58, 49));
             g2D.fillRect(width - 110, (height - (charHeight * 2) + 1), (save_width * 2) - 10, 40);
         }
 
