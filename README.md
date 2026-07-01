@@ -8,6 +8,7 @@ Features:
 - Custom rendering
 - Used a GapBuffer data structure
 - Custom cursor logic
+- General Syntax Highlighting
 
 I have also included a design doc that goes into more details and explains some of my decisions when developing the editor.
 
